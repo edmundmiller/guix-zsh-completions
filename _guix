@@ -1,0 +1,17 @@
+#compdef guix
+
+_guix() {
+  local -a commands
+  commands=(
+    'hello-guix:our first autocompletion function.'
+    'version:show the used guix version.'
+  )
+
+  if (( CURRENT == 2 )); then
+    _describe -t commands 'commands' commands
+  fi
+
+  return 0
+}
+
+_guix
