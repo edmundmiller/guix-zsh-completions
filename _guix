@@ -11,7 +11,7 @@ _arguments -C \
 case "$state" in
   (cmds)
     local commands; commands=(
-      'archive:Padrinos generators'
+      'archive:Export/import one or more packages from/to the store'
       'build:Build the given PACKAGE-OR-DERIVATION and return their output paths'
       'challenge:Challenge the substitutes for PACKAGE'
       'container:Build and manipulate Linux containers'
