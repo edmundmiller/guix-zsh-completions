@@ -49,15 +49,15 @@ case "$state" in
     case $line[1] in
       (archive)
         _arguments \
-          '(--export)'--export'[export the specified files/packages to stdout.]' \
-          '(-r --recursive)'{-r,--recursive}'[combined with "--export", include dependencies.]' \
-          '(--import)'--import'[import from the archive passed on stdin.]' \
-          '(--missing)'--missing'[print the files from stdin that are missing.]' \
-          '(-x --extract)'{-x,--extract}'[extract the archive on stdin to DIR.]:DIR' \
-          '(-t --list)'{-t,--list}'[list the files in the archive on stdin.]:NAME' \
-          '(--generate-key)'--generate-key'[generate a key pair with the given parameters.]:PARAMETERS' \
-          '(--authorize)'--authorize'[authorize imports signed by the public key on stdin.]' \
-          '(-e --expression)'{-e,--expression}'[build the package or derivation EXPR evaluates to.]:EXPR' \
+          '(--export)'--export'[export the specified files/packages to stdout]' \
+          '(-r --recursive)'{-r,--recursive}'[combined with "--export", include dependencies]' \
+          '(--import)'--import'[import from the archive passed on stdin]' \
+          '(--missing)'--missing'[print the files from stdin that are missing]' \
+          '(-x --extract)'{-x,--extract}'[extract the archive on stdin to DIR]:DIR' \
+          '(-t --list)'{-t,--list}'[list the files in the archive on stdin]:NAME' \
+          '(--generate-key)'--generate-key'[generate a key pair with the given parameters]:PARAMETERS' \
+          '(--authorize)'--authorize'[authorize imports signed by the public key on stdin]' \
+          '(-e --expression)'{-e,--expression}'[build the package or derivation EXPR evaluates to]:EXPR' \
           '(-S --source)'{-S,--source}'[build the packages" source derivations]' \
           '(-s --system)'{-s,--system}'[attempt to build for SYSTEM--e.g., "i686-linux"]' \
           '(--target)'--target'[cross-build for TRIPLET--e.g., "armel-linux-gnu"]:TRIPLET' \
