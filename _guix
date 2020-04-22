@@ -72,10 +72,10 @@ case "$state" in
           '(--no-grafts)'--no-grafts'[do not graft packages]' \
           '(--no-offload)'--no-offload'[do not attempt to offload builds]' \
           '(--max-silent-time)'--max-silent-time'[mark the build as failed after SECONDS of silence]:SECONDS' \
-          '(--timeout)'--timeout=SECONDS'[mark the build as failed after SECONDS of activity]:SECONDS' \
-          '(--rounds=N)'--rounds=N'[build N times in a row to detect non-determinism]:N' \
+          '(--timeout)'--timeout'[mark the build as failed after SECONDS of activity]:SECONDS' \
+          '(--rounds)'--rounds'[build N times in a row to detect non-determinism]:N' \
           '(-c --cores)'{-c,--cores}'[allow the use of up to N CPU cores for the build]:N' \
-          '(-M --max-jobs)'{-M,--max-jobs=N}'[allow at most N build jobs]:N' \
+          '(-M --max-jobs)'{-M,--max-jobs}'[allow at most N build jobs]:N' \
           '(--debug)'--debug'[produce debugging output at LEVEL]:LEVEL' \
           '(-h,--help)'{-h,--help}'[display this help and exit]' \
           '(-V, --version)'{-V,--version}'[display version information and exit]'
