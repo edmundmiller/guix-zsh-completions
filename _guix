@@ -81,6 +81,15 @@ case "$state" in
           '(-V, --version)'{-V,--version}'[display version information and exit]'
         ret=0
         ;;
+      (challenge)
+        _arguments \
+          '(--substitute-urls)'--substiture-urls'[compare build results with those at URLS]:URLS' \
+          '(-v --verbose )'{-v,--verbose}'[show details about successful comparisons]' \
+          '(--diff)'--diff'[show differences according to MODE]' \
+          '(-h --help)'{-h,--help}'[display this help and exit]' \
+          '(-V --version)'{-V,--version}'[display version information and exit]'
+        ret=0
+        ;;
     esac
     ;;
 esac
