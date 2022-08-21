@@ -35,6 +35,7 @@ case "$state" in
       'remove:Remove the given PACKAGES'
       'repl:Start a Guile REPL in the Guix execution environment'
       'search:Search for packages matching REGEXPS'
+      'shell:Build an environment that includes the dependencies of PACKAGE and execute COMMAND or an interactive shell in that environment'
       'show:Show details about PACKAGE'
       'size:Report the size of PACKAGE and its dependencies'
       'system:Build the operating system declared in FILE according to ACTION.'
@@ -86,6 +87,50 @@ case "$state" in
           '(--substitute-urls)'--substiture-urls'[compare build results with those at URLS]:URLS' \
           '(-v --verbose )'{-v,--verbose}'[show details about successful comparisons]' \
           '(--diff)'--diff'[show differences according to MODE]' \
+          '(-h --help)'{-h,--help}'[display this help and exit]' \
+          '(-V --version)'{-V,--version}'[display version information and exit]'
+        ret=0
+        ;;
+      (shell)
+        _arguments \
+          '(-D --development)'{-D,--development}'[include the development inputs of the next package]' \
+          '(-f --file)'{-f,--file}'[add to the environment the package FILE evaluates to]:FILE' \
+          '(-q)'-q'[inhibit loading of "guix.scm" and "manifest.scm"]' \
+          '(--rebuild-cache)'--rebuild-cache'[rebuild cached environment, if any]' \
+          '(--export-manifest)'--export-manifest'[print a manifest for the given options]' \
+          '(-e --expression)'{-e,--expression}'[create environment for the package that EXPR evaluates to]:EXPR' \
+          '(-m --manifest)'{-m,--manifest}'[create environment with the manifest from FILE]:FILE' \
+          '(-p --profile)'{-p,--profile}'[create environment from profile at PATH]:PATH' \
+          '(--check)'--check'[check if the shell clobbers environment variables]' \
+          '(--pure)'--pure'[unset existing environment variables]' \
+          '(-E --preserve)'{-E,--preserve}'[preserve environment variables that match REGEXP]:REGEXP' \
+          '(--search-paths)'--search-paths'[display needed environment variable definitions]' \
+          '(-r --root)'{-r,--root}'[make FILE a symlink to the result, and register it as a garbage collector root]:FILE' \
+          '(-C --container)'{-C,--container}'[run command within an isolated container]' \
+          '(-N --network)'{-N,--network}'[allow containers to access the network]' \
+          '(-P --link-profile)'{-P,--link-profile}'[link environment profile to ~/.guix-profile within an isolated container]' \
+          '(-u --user)'{-u,--user}'[instead of copying the name and home of the current user into an isolated container, use the name USER with home directory /home/USER]:USER' \
+          '(--no-cwd)'--no-cwd'[do not share current working directory with an isolated container]' \
+          '(--share)'--share'[for containers, share writable host file system according to SPEC]:SPEC' \
+          '(--expose)'--expose=SPEC'[for containers, expose read-only host file system according to SPEC]:SPEC' \
+          '(-v --verbosity)'{-v,--verbosity}'[use the given verbosity LEVEL]:LEVEL' \
+          '(--bootstrap)'--bootstrap'[use bootstrap binaries to build the environment]' \
+          '(-L --load-path)'{-L,--load-path}'[prepend DIR to the package module search path]:DIR' \
+          '(-K --keep-failed)'{-K,--keep-failed}'[keep build tree of failed builds]' \
+          '(-k --keep-going)'{-k,--keep-going}'[keep going when some of the derivations fail]' \
+          '(-n --dry-run)'{-n,--dry-run}'[do not build the derivations]' \
+          '(--fallback)'--fallback'[fall back to building when the substituter fails]' \
+          '(--no-substitutes)'--no-substitutes'[build instead of resorting to pre-built substitutes]' \
+          '(--substitute-urls)'--substitute-urls'[fetch substitute from URLS if they are authorized]:URLS' \
+          '(--no-grafts)'--no-grafts'[do not graft packages]' \
+          '(--no-offload)'--no-offload'[do not attempt to offload builds]' \
+          '(--max-silent-time)'--max-silent-time'[mark the build as failed after SECONDS of silence]:SECONDS' \
+          '(--timeout)'--timeout'[mark the build as failed after SECONDS of activity]:SECONDS' \
+          '(--rounds)'--rounds'[build N times in a row to detect non-determinism]:N' \
+          '(-c --cores)'{-c,--cores}'[allow the use of up to N CPU cores for the build]:N' \
+          '(-M --max-jobs)'{-M,--max-jobs}'[allow at most N build jobs]:N' \
+          '(--debug)'--debug'[produce debugging output at LEVEL]:LEVEL' \
+          '(--help-transform)'--help-transform'[list package transformation options not shown here]' \
           '(-h --help)'{-h,--help}'[display this help and exit]' \
           '(-V --version)'{-V,--version}'[display version information and exit]'
         ret=0
